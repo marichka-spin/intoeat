@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-sm-1"/>
+    <div class="col-sm-10">
+        <div class="form-group">
+            <h3>General Information</h3>
+            <hr/>
+            <div about="general-info">
+                <label for="p-name">Name:</label>
+                <input type="text" class="form-control" id="p-name" ng-model="group.name">
+                <label for="p-descr">Description:</label>
+                <textarea class="form-control" rows="5" id="p-descr" ng-model="group.description"></textarea>
+            </div>
+            <h3>Tags List</h3>
+            <hr/>
+            <div about="tags">
+                <div class="ms-container">
+                    <div class="ms-selection">
+                        <label for="ms-selection">Group tags:</label>
+                        <ul class="ms-list" tabindex="-1" id="ms-selection">
+                            <li class="ms-elem-selection"
+                                ng-repeat="tagId in group.tagsIds"
+                                ng-init="tag = allTags[tagId]"
+                                ng-class="{'ms-active':tag.selected}"
+                                ng-click="tag.selectTag()"
+                                value="{{ tag.id }}">{{ tag.name }}</li>
+                        </ul>
+                    </div>
+                    <div class="btn-group-vertical multiselect-btn">
+                        <button type="button" class="btn btn-primary"
+                                ng-click="removeTags()">--></button>
+                        <button type="button" class="btn btn-primary"
+                                ng-click="addTags()"><--</button>
+                    </div>
+                    <div class="ms-selectable">
+                        <label for="ms-selectable">Available tags:</label>
+                        <ul class="ms-list" tabindex="-1" id="ms-selectable">
+                            <li class="ms-elem-selectable"
+                                ng-repeat="tagId in availableTags"
+                                ng-init="tag = allTags[tagId]"
+                                ng-class="{'ms-active':tag.selected}"
+                                ng-click="tag.selectTag()"
+                                value="{{ tag.id }}">{{ tag.name }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="saveGroup()">Apply</button>
+        <a class="btn btn-primary" href="{{ listUrl }}">Cancel</a>
+    </div>
+    <div class="col-sm-1"/>
+</div>

@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-sm-1"/>
+    <div class="col-sm-10">
+        <div class="col-sm-12">
+            <h3>General Information</h3>
+            <hr/>
+        </div>
+        <div class="col-sm-8">
+            <div class="form-group">
+                <div about="general-info">
+                    <label for="p-name">Name:</label>
+                    <input type="text" class="form-control" id="p-name" ng-model="place.name">
+                    <label for="p-descr">Description:</label>
+                    <textarea class="form-control" rows="5" id="p-descr" ng-model="place.description"></textarea>
+                    <label for="p-logo">Logo:</label>
+                    <form id="p-logo" action="admin/upload" ng-upload="completeUpload(content)">
+                        <div class="form-inline">
+                            <input class="form-control" type="file" name="file">
+                            <input type="submit" class="btn right-btn" value="Upload" ng-disabled="$isUploading">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div about="logo-container" class="col-sm-4">
+            <label for="place-logo"> </label>
+            <img id="place-logo" class="img-thumbnail img-logo" ng-src="{{ place.baseDir + place.image }}">
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <h3 class="h3-inline">Contact List</h3>
+                <button type="button" class="btn add-nested"
+                        ng-click="addContact()">Add Contact</button>
+                <hr/>
+                <div about="contacts">
+                    <div class="ms-container well" ng-repeat="contact in place.contacts">
+                        <label for="{{ 'contact' + $index }}" class="c-header" ng-click="displayAddress($index)">Contact Group {{$index + 1}}</label>
+                        <div class="rm-marker right-marker" ng-click="removeContact($index)"><b>&#10007</b></div>
+                        <hr/>
+                        <div id="{{ 'contact' + $index }}" class="ms-container" ng-class="{'ms-collapsed':contact.collapsed}">
+                            <label for="{{ 'address' + contact.id }}" class="c-label">Full address: </label>
+                            <input id="{{ 'address' + contact.id }}" type="text" class="form-control" ng-model="contact.address">
+                            <label for="{{ 'email' + contact.id }}" class="c-label">Email address: </label>
+                            <input id="{{ 'email' + contact.id }}" type="text" class="form-control" ng-model="contact.email">
+                            <label for="{{ 'phone' + contact.id }}" class="c-label">Phone number: </label>
+                            <input id="{{ 'phone' + contact.id }}" type="text" class="form-control" ng-model="contact.phone">
+                            <label for="{{ 'webSite' + contact.id }}" class="c-label">Web page: </label>
+                            <input id="{{ 'webSite' + contact.id }}" type="text" class="form-control" ng-model="contact.webSite">
+                            <label for="{{ 'workTime' + contact.id }}" class="c-label">Work hours: </label>
+                            <input id="{{ 'workTime' + contact.id }}" type="text" class="form-control" ng-model="contact.workTime">
+                        </div>
+                    </div>
+                </div>
+                <h3>Tags List</h3>
+                <hr/>
+                <div about="tags">
+                    <div class="ms-container">
+                        <div class="ms-selection">
+                            <label for="ms-selection">Place tags:</label>
+                            <ul class="ms-list" tabindex="-1" id="ms-selection">
+                                <li class="ms-elem-selection"
+                                    ng-repeat="tagId in place.tagsIds"
+                                    ng-init="tag = allTags[tagId]"
+                                    ng-class="{'ms-active':tag.selected}"
+                                    ng-click="tag.selectTag()"
+                                    value="{{ tag.id }}">{{ tag.name }}</li>
+                            </ul>
+                        </div>
+                        <div class="btn-group-vertical multiselect-btn">
+                            <button type="button" class="btn btn-primary"
+                                    ng-click="removeTags()">--></button>
+                            <button type="button" class="btn btn-primary"
+                                    ng-click="addTags()"><--</button>
+                        </div>
+                        <div class="ms-selectable">
+                            <label for="ms-selectable">Available tags:</label>
+                            <ul class="ms-list" tabindex="-1" id="ms-selectable">
+                                <li class="ms-elem-selectable"
+                                    ng-repeat="tagId in availableTags"
+                                    ng-init="tag = allTags[tagId]"
+                                    ng-class="{'ms-active':tag.selected}"
+                                    ng-click="tag.selectTag()"
+                                    value="{{ tag.id }}">{{ tag.name }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" ng-click="savePlace()">Apply</button>
+            <a class="btn btn-primary" href="{{ listUrl }}">Cancel</a>
+        </div>
+    </div>
+    <div class="col-sm-1"/>
+</div>

@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-sm-1"/>
+    <div class="col-sm-10">
+        <div class="form-group">
+            <h3>General Information</h3>
+            <hr/>
+            <div about="general-info">
+                <label for="p-name">Name:</label>
+                <input type="text" class="form-control" id="p-name" ng-model="tag.name">
+                <label for="p-descr">Description:</label>
+                <textarea class="form-control" rows="5" id="p-descr" ng-model="tag.description"></textarea>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="saveTag()">Apply</button>
+        <a class="btn btn-primary" href="{{ listUrl }}">Cancel</a>
+    </div>
+    <div class="col-sm-1"/>
+</div>

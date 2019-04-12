@@ -1,0 +1,123 @@
+th.th-action-marker {
+    text-align: center;
+}
+
+.action-marker {
+    font-size: x-large;
+    text-align: center;
+}
+
+.btn-primary,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active {
+    background-color: #222;
+    border-color: #080808;
+    color: #9d9d9d;
+}
+
+.form-control:focus,
+.btn:focus,
+.btn:active {
+    outline: none;
+}
+
+.form-control:focus {
+    border-color: #9d9d9d;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus {
+    background-color: #080808;
+    border-color: #080808;
+    color: #ffffff;
+    outline: none;
+}
+
+.row.table-control {
+    padding-bottom: 2%;
+}
+
+a {
+    color: #333;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+div.rm-marker {
+    display: inline-block;
+    cursor: pointer;
+}
+
+div.rm-marker:hover,
+div.rm-marker:focus {
+    color: #ff0000;
+}
+
+div.right-marker {
+    float: right;
+}
+
+div.multiselect-btn {
+    width: 10%;
+    display: inline-block;
+    float: left;
+    padding-top: 7%;
+    padding-left: 2%;
+    padding-right: 2%                                                                                       ;
+}
+
+label.c-header {
+    cursor: pointer;
+}
+
+label.c-label {
+    font-weight: normal;
+}
+
+hr {
+    margin: 0;
+    border: 1px solid #e3e3e3;
+}
+
+h3.h3-inline {
+    display: inline-block;
+}
+
+button.add-nested {
+    margin-top: 16px;
+    float: right;
+}
+
+div[about='general-info'],
+div[about='logo-container']{
+    margin-top: 1%;
+}
+
+div.ms-collapsed {
+    display: none;
+}
+
+input[type="file"].form-control {
+    width: 80%;
+    float: left;
+}
+
+input.right-btn {
+    float: right;
+}
+
+.img-logo {
+    max-height: 230px;
+}
+
+textarea.form-control {
+    resize: none;
+}
